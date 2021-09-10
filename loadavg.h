@@ -32,11 +32,10 @@ class LoadBase {
 
 class Fload : public LoadBase {
  private:
-  welford_t welf_{10.0};
+  welford_t welf_{5.0};
 
   int load_fd_{-1};
 
-  // double daily_{1.0};
   int cpu_num_;
   ScrubAverages& sav_;
 
@@ -59,7 +58,32 @@ class Fload : public LoadBase {
   const ScrubAverages& get_scrub_avgs() final { return sav_; }
 };
 
+// a version using the getloadavg(3)
 
+class Getloadsys : public LoadBase {
+ private:
+  welford_t welf_{5.0};
+
+  int cpu_num_;
+  ScrubAverages& sav_;
+
+  bool failed_{false};
+
+  double vs_[3]; // kept as member only for debugging
+
+  void mark_failure();
+
+ public:
+  explicit Getloadsys(ScrubAverages& sav);
+
+  void update_averages() final;
+
+  ~Getloadsys() override;
+
+  void show(std::string_view title) final;
+
+  const ScrubAverages& get_scrub_avgs() final { return sav_; }
+};
 
 /*
 ScrubQueue::ScrubQueue(CephContext* cct, OSDService& osds)

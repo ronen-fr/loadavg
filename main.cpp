@@ -6,17 +6,13 @@
 #include "loadavg.h"
 
 
-int main()
+
+
+
+
+void run1(LoadBase& a)
 {
-  ScrubAverages sav;
-  Fload a(sav);
-
-  //a.update_averages();
-  //a.show("first");
-  //a.update_averages();
-  //a.show("2nd");
-
-  for (int k = 0; k < 600; ++k) {
+  for (int k = 0; k < 100; ++k) {
     usleep(50'000);
     a.update_averages();
     if (!(k % 20)) {
@@ -25,6 +21,24 @@ int main()
   }
 }
 
+
+#ifdef NOT_RUNNING_BENCH
+int main()
+{
+  {
+    ScrubAverages sav;
+    Fload a(sav);
+    run1(a);
+  }
+
+  {
+    ScrubAverages sav;
+    Getloadsys a(sav);
+    run1(a);
+  }
+}
+
+#endif
 
 
 #if 0
