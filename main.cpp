@@ -1,5 +1,34 @@
 #include <benchmark/benchmark.h>
 #include <fmt/core.h>
+#include <fmt/format.h>
+#include <unistd.h>
+
+#include "loadavg.h"
+
+
+int main()
+{
+  ScrubAverages sav;
+  Fload a(sav);
+
+  //a.update_averages();
+  //a.show("first");
+  //a.update_averages();
+  //a.show("2nd");
+
+  for (int k = 0; k < 600; ++k) {
+    usleep(50'000);
+    a.update_averages();
+    if (!(k % 20)) {
+      a.show(" - ");
+    }
+  }
+}
+
+
+
+#if 0
+
 
 static void BM_StringCreation(benchmark::State& state) {
   for (auto _ : state)
@@ -19,7 +48,41 @@ static void BM_StringCopy(benchmark::State& state) {
 float dt1 = 13.35f;
 volatile int dt2 = 100;
 volatile bool repair = true;
+
+int outsum = 0;
+
 #include <sstream>
+
+
+
+static void CondFmtTodn(benchmark::State& state) {
+  // Code before the loop is not measured
+  fmt::memory_buffer out;
+  std::string x = "hello";
+  int c = 10;
+
+  for (auto _ : state) {
+    c *= -1;
+    fmt::format_to(out, "{} is {}", dt1, x );
+
+    if (c > 0) {
+      fmt::format_to(out, " {} errors", c);
+    } else {
+      fmt::format_to(out, "ok");
+    }
+
+    if (repair) {
+      fmt::format_to(out, "{} fixed ", repair);
+    }
+
+    if (dt2 > 1) {
+      fmt::format_to(out, " {} dt2", dt2);
+    }
+
+    benchmark::DoNotOptimize(out);
+  }
+}
+BENCHMARK(CondFmtTodn);
 
 static void CondStrstr(benchmark::State& state) {
   // Code before the loop is not measured
@@ -43,6 +106,7 @@ static void CondStrstr(benchmark::State& state) {
       oss << dt2 << " dt2 ";
     }
 
+    outsum += oss.str()[2];
   }
 }
 BENCHMARK(CondStrstr);
@@ -70,17 +134,60 @@ static void CondFmt(benchmark::State& state) {
       ret += fmt::format(" {} dt2", dt2);
     }
 
+    outsum += ret.c_str()[2];
   }
 }
 BENCHMARK(CondFmt);
 
+
+static void CondFmtTo(benchmark::State& state) {
+  // Code before the loop is not measured
+  fmt::memory_buffer out;
+  std::string x = "hello";
+  int c = 10;
+
+  for (auto _ : state) {
+    c *= -1;
+    fmt::format_to(out, "{} is {}", dt1, x );
+
+    if (c > 0) {
+      fmt::format_to(out, " {} errors", c);
+    } else {
+      fmt::format_to(out, "ok");
+    }
+
+    if (repair) {
+      fmt::format_to(out, "{} fixed ", repair);
+    }
+
+    if (dt2 > 1) {
+      fmt::format_to(out, " {} dt2", dt2);
+    }
+
+    outsum += out.data()[2];
+  }
+}
+BENCHMARK(CondFmtTo);
+
+
+
+#ifdef ASIDE_WHILE_TESTING_SOMETHING_ELSE
 BENCHMARK_MAIN();
+#endif
+
+
+void handle_cpu_freq()
+{
+  /*
+
+ cpupower frequency-info
 
 
 
+    */
 
 
-
+}
 
 
 
@@ -94,8 +201,8 @@ BENCHMARK_MAIN();
 //#include <benchmark/benchmark_api>
 
 
-#include "benchmark/benchmark_api.h"
 #include "../commonTest.h"
+#include "benchmark/benchmark_api.h"
 
 void IntToString(benchmark::State& state) {
   while (state.KeepRunning()) {
@@ -181,4 +288,5 @@ int main() {
   std::cout << "Hello, World!" << std::endl;
   return 0;
 }
+#endif
 #endif

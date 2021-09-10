@@ -8,8 +8,8 @@ AllowShortFunctionsOnASingleLine: Inline
 AllowShortIfStatementsOnASingleLine: false
 AllowShortLambdasOnASingleLine: All
 AllowShortLoopsOnASingleLine: false
-ColumnLimit: 90
-MaxEmptyLinesToKeep: 3
+ColumnLimit: 80
+MaxEmptyLinesToKeep: 2
 Cpp11BracedListStyle: true
 BinPackParameters: false
 BreakBeforeBraces: Custom
@@ -19,7 +19,7 @@ BraceWrapping:
   AfterFunction: true
 DerivePointerAlignment: false
 PointerAlignment: Left
-AlwaysBreakTemplateDeclarations: MultiLine
+AlwaysBreakTemplateDeclarations: Yes
 BreakConstructorInitializers: BeforeComma
 KeepEmptyLinesAtTheStartOfBlocks: true
 ContinuationIndentWidth: 2
