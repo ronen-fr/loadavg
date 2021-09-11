@@ -17,22 +17,23 @@ initialize:
  S = S + (x-m)*(x-prev_mean)
  */
 
+template<typename FLT, uint64_t MAXSAMPLES>
 struct welford_t {
-  inline static constexpr const uint64_t daily_samples = 60;	// * 24 * 24;
+  //inline static constexpr const uint64_t daily_samples = 60;	// * 24 * 24;
 
-  welford_t(float frst) {
+  welford_t(FLT frst) {
     m_ = frst;
     n_ = 1;
   }
 
-  inline float nxt(float v)
+  inline FLT nxt(FLT v)
   {
-    n_ = std::min(n_+1, daily_samples);
+    n_ = std::min(n_+1, MAXSAMPLES);
     m_ = m_ + (v - m_) / n_;
     return m_;
   }
 
-  float m_;
+  FLT m_;
   uint64_t n_;
 };
 

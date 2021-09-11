@@ -1,0 +1,104 @@
+
+/home/rfriedma/try/loadavg/cmake-build-release/bench1 --benchmark_repetitions=10 --benchmark_counters_tabular=true
+2021-09-10T17:51:54+03:00
+Running /home/rfriedma/try/loadavg/cmake-build-release/bench1
+Run on (8 X 4200 MHz CPU s)
+CPU Caches:
+  L1 Data 32 KiB (x4)
+  L1 Instruction 32 KiB (x4)
+  L2 Unified 256 KiB (x4)
+  L3 Unified 8192 KiB (x1)
+Load Average: 0.42, 0.79, 0.52
+***WARNING*** CPU scaling is enabled, the benchmark real time measurements may be noisy and will incur extra overhead.
+ - :  0.42(0.21) / .. / 0.52  ->  1.8066666 imp  [N:3]
+ - :  0.42(0.21) / .. / 0.52  ->  0.6091666 imp  [N:12]
+ - :  0.42(0.21) / .. / 0.52  ->  0.24941093 xxx  [N:60]
+ - :  0.42(0.21) / .. / 0.52  ->  0.21000043 xxx  [N:60]
+ - :  0.42(0.21) / .. / 0.52  ->  0.21000043 xxx  [N:60]
+ - :  0.42(0.21) / .. / 0.52  ->  0.21000043 xxx  [N:60]
+ - :  0.42(0.21) / .. / 0.52  ->  0.21000043 xxx  [N:60]
+ - :  0.42(0.21) / .. / 0.52  ->  0.21000043 xxx  [N:60]
+ - :  0.42(0.21) / .. / 0.52  ->  0.21000043 xxx  [N:60]
+ - :  0.55(0.275) / .. / 0.53  ->  0.27499914 xxx  [N:60]
+ - :  0.55(0.275) / .. / 0.53  ->  0.27500087 xxx  [N:60]
+ - :  0.55(0.275) / .. / 0.53  ->  0.27500087 xxx  [N:60]
+ - :  0.55(0.275) / .. / 0.53  ->  0.27500087 xxx  [N:60]
+ - :  0.55(0.275) / .. / 0.53  ->  0.27500087 xxx  [N:60]
+ - :  0.55(0.275) / .. / 0.53  ->  0.27500087 xxx  [N:60]
+ - :  0.55(0.275) / .. / 0.53  ->  0.27500087 xxx  [N:60]
+------------------------------------------------------------------
+Benchmark                        Time             CPU   Iterations
+------------------------------------------------------------------
+bench_Fload                    954 ns          952 ns       616207
+bench_Fload                   1015 ns         1012 ns       616207
+bench_Fload                   1069 ns         1066 ns       616207
+bench_Fload                    984 ns          981 ns       616207
+bench_Fload                    953 ns          952 ns       616207
+bench_Fload                    948 ns          947 ns       616207
+bench_Fload                    952 ns          951 ns       616207
+bench_Fload                    947 ns          945 ns       616207
+bench_Fload                    945 ns          944 ns       616207
+bench_Fload                    965 ns          963 ns       616207
+bench_Fload_mean               973 ns          971 ns           10
+bench_Fload_median             953 ns          952 ns           10
+bench_Fload_stddev            40.0 ns         39.5 ns           10
+ - :  0.55(0.275) / .. / 0.53  ->  1.85 xxx  [N:3]
+ - :  0.55(0.275) / .. / 0.53  ->  0.66875 xxx  [N:12]
+ - :  0.55(0.275) / .. / 0.53  ->  0.3138761 xxx  [N:60]
+ - :  0.55(0.275) / .. / 0.53  ->  0.275 xxx  [N:60]
+ - :  0.55(0.275) / .. / 0.53  ->  0.275 xxx  [N:60]
+ - :  0.55(0.275) / .. / 0.53  ->  0.275 xxx  [N:60]
+ - :  0.55(0.275) / .. / 0.53  ->  0.275 xxx  [N:60]
+ - :  0.58(0.29) / .. / 0.54  ->  0.29 xxx  [N:60]
+ - :  0.58(0.29) / .. / 0.54  ->  0.29 xxx  [N:60]
+ - :  0.58(0.29) / .. / 0.54  ->  0.29 xxx  [N:60]
+ - :  0.58(0.29) / .. / 0.54  ->  0.29 xxx  [N:60]
+ - :  0.58(0.29) / .. / 0.54  ->  0.29 xxx  [N:60]
+ - :  0.58(0.29) / .. / 0.54  ->  0.29 xxx  [N:60]
+ - :  0.58(0.29) / .. / 0.54  ->  0.29 xxx  [N:60]
+ - :  0.62(0.31) / .. / 0.54  ->  0.31 xxx  [N:60]
+ - :  0.62(0.31) / .. / 0.54  ->  0.31 xxx  [N:60]
+bench_Fload_dbl                986 ns          984 ns       731377
+bench_Fload_dbl                976 ns          973 ns       731377
+bench_Fload_dbl                972 ns          970 ns       731377
+bench_Fload_dbl                977 ns          975 ns       731377
+bench_Fload_dbl                977 ns          975 ns       731377
+bench_Fload_dbl                977 ns          975 ns       731377
+bench_Fload_dbl                973 ns          971 ns       731377
+bench_Fload_dbl                978 ns          976 ns       731377
+bench_Fload_dbl                972 ns          971 ns       731377
+bench_Fload_dbl                975 ns          973 ns       731377
+bench_Fload_dbl_mean           976 ns          974 ns           10
+bench_Fload_dbl_median         976 ns          974 ns           10
+bench_Fload_dbl_stddev        4.06 ns         3.98 ns           10
+ - :  0.62(0.31) / .. / 0.54  ->  1.8733332 xxx  [N:3]
+ - :  0.62(0.31) / .. / 0.54  ->  0.7008333 xxx  [N:12]
+ - :  0.62(0.31) / .. / 0.54  ->  0.34858808 xxx  [N:60]
+ - :  0.62(0.31) / .. / 0.54  ->  0.3100009 xxx  [N:60]
+ - :  0.62(0.31) / .. / 0.54  ->  0.3100009 xxx  [N:60]
+ - :  0.62(0.31) / .. / 0.54  ->  0.3100009 xxx  [N:60]
+ - :  0.62(0.31) / .. / 0.54  ->  0.3100009 xxx  [N:60]
+ - :  0.62(0.31) / .. / 0.54  ->  0.3100009 xxx  [N:60]
+ - :  0.62(0.31) / .. / 0.54  ->  0.3100009 xxx  [N:60]
+ - :  0.62(0.31) / .. / 0.54  ->  0.3100009 xxx  [N:60]
+ - :  0.65(0.325) / .. / 0.54  ->  0.3249991 xxx  [N:60]
+ - :  0.65(0.325) / .. / 0.54  ->  0.32500088 xxx  [N:60]
+ - :  0.65(0.325) / .. / 0.54  ->  0.32500088 xxx  [N:60]
+ - :  0.65(0.325) / .. / 0.54  ->  0.32500088 xxx  [N:60]
+ - :  0.65(0.325) / .. / 0.54  ->  0.32500088 xxx  [N:60]
+ - :  0.65(0.325) / .. / 0.54  ->  0.32500088 xxx  [N:60]
+bench_Getloadsys              2285 ns         2217 ns       303735
+bench_Getloadsys              2262 ns         2194 ns       303735
+bench_Getloadsys              2279 ns         2191 ns       303735
+bench_Getloadsys              2279 ns         2191 ns       303735
+bench_Getloadsys              2283 ns         2205 ns       303735
+bench_Getloadsys              2267 ns         2183 ns       303735
+bench_Getloadsys              2283 ns         2193 ns       303735
+bench_Getloadsys              2279 ns         2191 ns       303735
+bench_Getloadsys              2296 ns         2216 ns       303735
+bench_Getloadsys              2271 ns         2204 ns       303735
+bench_Getloadsys_mean         2278 ns         2198 ns           10
+bench_Getloadsys_median       2279 ns         2194 ns           10
+bench_Getloadsys_stddev       9.66 ns         11.2 ns           10
+
+Process finished with exit code 0

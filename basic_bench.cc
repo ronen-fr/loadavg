@@ -19,9 +19,24 @@ static void bench_Fload(benchmark::State& state) {
     a.update_averages();
   }
 
-  a.show(" - ");
+  //a.show(" - ");
 }
 BENCHMARK(bench_Fload);
+
+
+static void bench_Fload_dbl(benchmark::State& state) {
+  // Code before the loop is not measured
+  ScrubAverages sav;
+  Fload_dbl a(sav);
+
+  for (auto _ : state) {
+    a.update_averages();
+  }
+
+  //a.show(" - ");
+}
+BENCHMARK(bench_Fload_dbl);
+
 
 
 static void bench_Getloadsys(benchmark::State& state) {
@@ -33,7 +48,7 @@ static void bench_Getloadsys(benchmark::State& state) {
     a.update_averages();
   }
 
-  a.show(" - ");
+  //a.show(" - ");
 }
 BENCHMARK(bench_Getloadsys);
 

@@ -7,6 +7,11 @@ find_package(benchmark REQUIRED)
 find_package(fmt REQUIRED)
 
 
-add_executable(bench1 main.cpp testing_logger.cc proc_loadavg.cc syscall_loadavg.cc welford_t.h basic_bench.cc)
+add_executable(bench1 main.cpp
+       testing_logger.cc
+       proc_loadavg.cc
+       syscall_loadavg.cc
+       welford_t.h
+       basic_bench.cc)
 
 target_link_libraries(bench1 benchmark::benchmark fmt::fmt)
